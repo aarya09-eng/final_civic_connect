@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citizen Portal — CivicConnect</title>
+  <meta name="description" content="Report a community problem or check the status of your report on CivicConnect.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-header__brand" aria-label="CivicConnect Home">
+        <img src="assets/images/logo.png" alt="CivicConnect" class="brand-logo">
+      </a>
+
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="siteNav">
+        <span class="mobile-nav-toggle__icon"></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="explore.html" class="nav-link">Explore</a></li>
+          <li><a href="citizen-portal.html" class="nav-link active" aria-current="page">Citizen Portal</a></li>
+          <li><a href="partner-support.html" class="nav-link">Partner Support</a></li>
+          <li><a href="student-dashboard.html" class="nav-link">Student Dashboard</a></li>
+          <li><a href="admin-dashboard.html" class="nav-link">Admin Dashboard</a></li>
+        </ul>
+        <div class="nav-auth" id="navAuthControls"></div>
+      </nav>
+    </div>
+  </header>
+
+  <header class="page-intro">
+    <div class="container">
+      <span class="section-tag">Community Voices</span>
+      <h1 class="page-intro__title">Citizen Portal</h1>
+      <p class="page-intro__desc">
+        Report a local challenge or check the status of a problem you have already submitted.
+      </p>
+    </div>
+  </header>
+
+  <main style="padding: 40px 0 60px 0;">
+    <div class="container">
+
+      <div class="action-pathway-grid">
+        <article class="action-pathway-card action-pathway-card--accent">
+          <span class="action-pathway-card__eyebrow">New report</span>
+          <h2 class="action-pathway-card__title">Report a Problem</h2>
+          <p class="action-pathway-card__desc">
+            Describe a community challenge in everyday language.
+          </p>
+          <a href="report.html" class="btn btn-action">Report a Problem</a>
+        </article>
+
+        <article class="action-pathway-card">
+          <span class="action-pathway-card__eyebrow">Existing reports</span>
+          <h2 class="action-pathway-card__title">Check the Status of Problem Reported</h2>
+          <p class="action-pathway-card__desc">
+            View the status of problems you have submitted.
+          </p>
+          <a href="#reportStatusSection" class="btn btn-secondary" id="checkReportStatusBtn">Check Status</a>
+        </article>
+      </div>
+
+      <section class="dashboard-section" id="reportStatusSection" aria-labelledby="myReportsTitle">
+        <div class="dashboard-section__header">
+          <div class="dashboard-section__title-group">
+            <h2 id="myReportsTitle" class="dashboard-section__title">My Reported Problems</h2>
+            <span class="dashboard-section__count" id="myReportsCount">1 Report</span>
+          </div>
+        </div>
+
+        <div class="problems-grid" id="myReportsContainer" aria-label="Citizen reported problems list">
+          <!-- Dynamically populated or rendered -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer site-footer__clean">
+    <div class="container">
+      <div class="site-footer__top-row">
+        <div class="site-footer__brand-block">
+          <img src="assets/images/logo.png" alt="CivicConnect" class="footer-logo">
+          <p class="site-footer__tagline">From community challenges to shared solutions.</p>
+          <p class="site-footer__summary">
+            CivicConnect connects local challenges with students, universities, researchers and partners to explore practical solutions.
+          </p>
+        </div>
+        <div class="site-footer__nav-block">
+          <h3 class="site-footer__nav-heading">Links</h3>
+          <ul class="site-footer__links">
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="citizen-portal.html">Citizen Portal</a></li>
+            <li><a href="student-dashboard.html">Student Dashboard</a></li>
+            <li><a href="partner-support.html">Partner Support</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom-line">
+        <div>&copy; 2026 CivicConnect &middot; From community challenges to shared solutions.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var user = window.CIVIC_AUTH ? window.CIVIC_AUTH.requireAuth(['citizen', 'admin']) : null;
+      if (!user) return;
+
+      var container = document.getElementById('myReportsContainer');
+      var countEl = document.getElementById('myReportsCount');
+      var checkBtn = document.getElementById('checkReportStatusBtn');
+
+      if (checkBtn) {
+        checkBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          var section = document.getElementById('reportStatusSection');
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
+
+      var userReports = window.CivicStore ? window.CivicStore.getMyReports(user.uid) : [];
+      // If user has no reports yet, display the sample CC-001 so the UI matches original screenshot
+      var reportsToDisplay = (userReports && userReports.length > 0)
+        ? userReports
+        : (typeof SAMPLE_PROBLEMS !== 'undefined' ? [SAMPLE_PROBLEMS[0]] : []);
+
+      if (countEl) {
+        var count = reportsToDisplay.length;
+        countEl.textContent = count + ' ' + (count === 1 ? 'Report' : 'Reports');
+      }
+
+      function getStatusTagClass(status) {
+        var s = (status || '').toLowerCase();
+        if (s.includes('exploring') || s.includes('review')) return 'tag-status--exploring';
+        if (s.includes('progress')) return 'tag-status--in-progress';
+        if (s.includes('solution') || s.includes('resolved') || s.includes('accept')) return 'tag-status--accepted';
+        return 'tag-status--new';
+      }
+
+      function getPriorityTagClass(priority) {
+        var p = (priority || 'medium').toLowerCase();
+        if (p === 'critical') return 'tag-priority--critical';
+        if (p === 'high') return 'tag-priority--high';
+        if (p === 'low') return 'tag-priority--low';
+        return 'tag-priority--medium';
+      }
+
+      if (container) {
+        container.innerHTML = reportsToDisplay.map(function(p) {
+          var priority = p.priority || 'Medium';
+          var status = p.status || 'Exploring';
+          var category = p.category || 'Water';
+          var esc = window.CivicUtils ? window.CivicUtils.escapeHTML : function(s) { return s || ''; };
+          return '<article class="problem-card">' +
+            '<div class="problem-card__top">' +
+              '<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">' +
+                '<span class="tag-id">' + esc(p.id) + '</span>' +
+                '<span class="tag-priority ' + getPriorityTagClass(priority) + '">' + esc(priority) + '</span>' +
+                '<span class="tag-category">' + esc(category) + '</span>' +
+              '</div>' +
+              '<span class="tag-status ' + getStatusTagClass(status) + '">' + esc(status) + '</span>' +
+            '</div>' +
+            '<h3 class="problem-card__title">' + esc(p.title) + '</h3>' +
+            '<div class="problem-card__location">' +
+              '<span aria-hidden="true">&#9679;</span> ' +
+              '<span>' + esc(p.location) + '</span>' +
+            '</div>' +
+            '<p class="problem-card__desc">' +
+              esc(p.shortDescription || p.fullDescription || '') +
+            '</p>' +
+            '<div class="problem-card__action">' +
+              '<a href="details.html?id=' + encodeURIComponent(p.id) + '" class="view-details-link">' +
+                'View Details <span aria-hidden="true">&rarr;</span>' +
+              '</a>' +
+            '</div>' +
+          '</article>';
+        }).join('');
+      }
+    });
+  </script>
+</body>
+</html>

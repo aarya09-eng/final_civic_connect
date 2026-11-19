@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile — CivicConnect</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-header__brand" aria-label="CivicConnect Home">
+        <img src="assets/images/logo.png" alt="CivicConnect" class="brand-logo">
+      </a>
+
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="siteNav">
+        <span class="mobile-nav-toggle__icon"></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="explore.html" class="nav-link">Explore</a></li>
+          <li><a href="citizen-portal.html" class="nav-link">Citizen Portal</a></li>
+          <li><a href="partner-support.html" class="nav-link">Partner Support</a></li>
+          <li><a href="student-dashboard.html" class="nav-link">Student Dashboard</a></li>
+          <li><a href="admin-dashboard.html" class="nav-link">Admin Dashboard</a></li>
+        </ul>
+        <div class="nav-auth" id="navAuthControls"></div>
+      </nav>
+    </div>
+  </header>
+
+  <header class="page-intro">
+    <div class="container">
+      <span class="section-tag">Account Management</span>
+      <h1 class="page-intro__title">User Profile</h1>
+      <p class="page-intro__desc">
+        View your authenticated session details and role-based workspace shortcuts.
+      </p>
+    </div>
+  </header>
+
+  <main style="padding: 40px 0 60px 0;">
+    <div class="container">
+      <div class="report-panel" style="max-width: 640px; margin: 0 auto;">
+        <div id="profileContent"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer site-footer__clean">
+    <div class="container">
+      <div class="site-footer__top-row">
+        <div class="site-footer__brand-block">
+          <img src="assets/images/logo.png" alt="CivicConnect" class="footer-logo">
+          <p class="site-footer__tagline">From community challenges to shared solutions.</p>
+          <p class="site-footer__summary">
+            CivicConnect connects local challenges with students, universities, researchers and partners to explore practical solutions.
+          </p>
+        </div>
+        <div class="site-footer__nav-block">
+          <h3 class="site-footer__nav-heading">Links</h3>
+          <ul class="site-footer__links">
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="citizen-portal.html">Citizen Portal</a></li>
+            <li><a href="student-dashboard.html">Student Dashboard</a></li>
+            <li><a href="partner-support.html">Partner Support</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom-line">
+        <div>&copy; 2026 CivicConnect &middot; From community challenges to shared solutions.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

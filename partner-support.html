@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner Support — CivicConnect</title>
+  <meta name="description" content="Organisations, industry, institutions, experts, funders and labs can explore opportunities and offer support for community challenges.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-header__brand" aria-label="CivicConnect Home">
+        <img src="assets/images/logo.png" alt="CivicConnect" class="brand-logo">
+      </a>
+
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="siteNav">
+        <span class="mobile-nav-toggle__icon"></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="explore.html" class="nav-link">Explore</a></li>
+          <li><a href="citizen-portal.html" class="nav-link">Citizen Portal</a></li>
+          <li><a href="partner-support.html" class="nav-link active" aria-current="page">Partner Support</a></li>
+          <li><a href="student-dashboard.html" class="nav-link">Student Dashboard</a></li>
+          <li><a href="admin-dashboard.html" class="nav-link">Admin Dashboard</a></li>
+        </ul>
+        <div class="nav-auth" id="navAuthControls"></div>
+      </nav>
+    </div>
+  </header>
+
+  <header class="page-intro">
+    <div class="container">
+      <span class="section-tag">Collaboration &amp; Enablement</span>
+      <h1 class="page-intro__title">Partner Support</h1>
+      <p class="page-intro__desc">
+        Partners on CivicConnect include organisations, industry, institutions, experts, funders, labs and community organisations. Whether you bring mentorship, facilities, materials, technical guidance or funding, you can help move community challenges toward practical exploration.
+      </p>
+    </div>
+  </header>
+
+  <main style="padding: 40px 0 60px 0;">
+    <div class="container">
+
+      <div class="action-pathway-grid">
+        <article class="action-pathway-card">
+          <span class="action-pathway-card__eyebrow">Discover</span>
+          <h2 class="action-pathway-card__title">Explore Opportunities</h2>
+          <p class="action-pathway-card__desc">
+            Browse active community challenges where student teams and communities may benefit from expertise, equipment, field access or other forms of support.
+          </p>
+          <a href="#partnerOpportunitiesSection" class="btn btn-action" id="exploreOpportunitiesBtn">Explore Opportunities</a>
+        </article>
+
+        <article class="action-pathway-card action-pathway-card--accent">
+          <span class="action-pathway-card__eyebrow">Contribute</span>
+          <h2 class="action-pathway-card__title">Offer Support</h2>
+          <p class="action-pathway-card__desc">
+            Share what your organisation or practice can contribute—guidance, resources, facilities or funding—linked to a challenge you care about.
+          </p>
+          <a href="offer-support.html" class="btn btn-secondary">Offer Support</a>
+        </article>
+      </div>
+
+      <section aria-labelledby="whatPartnersContribute" style="margin-bottom: 40px;">
+        <h2 id="whatPartnersContribute" class="dashboard-section__title">What partners can contribute</h2>
+        <p class="dashboard-section__desc" style="max-width: 720px;">
+          Mentorship and domain expertise, laboratory or workshop access, materials and testing equipment, field site facilitation, technical review, or funding that helps student and community teams validate ideas. Contributions can be in-kind, advisory or financial—whatever fits your capacity and the challenge at hand.
+        </p>
+      </section>
+
+      <!-- NEW WORKFLOW IMPROVEMENT: Student Solution Opportunities -->
+      <section class="dashboard-section" id="partnerOpportunitiesSection" aria-labelledby="partnerOpportunitiesTitle" style="margin-bottom: 48px;">
+        <div class="dashboard-section__header">
+          <div class="dashboard-section__title-group">
+            <h2 id="partnerOpportunitiesTitle" class="dashboard-section__title">Student Solution Opportunities</h2>
+            <span class="dashboard-section__count" id="opportunitiesCount">3 Opportunities</span>
+          </div>
+          <p class="dashboard-section__desc">
+            Browse active student solution proposals seeking mentorship, resources, and technical guidance. Select <strong>Offer Support</strong> on any opportunity to partner directly on that challenge.
+          </p>
+        </div>
+
+        <div class="proposals-list" id="partnerOpportunitiesContainer" aria-label="Student solution opportunities list">
+          <!-- Populated dynamically via JavaScript below -->
+        </div>
+      </section>
+
+      <!-- Section: My Support Contributions -->
+      <section class="dashboard-section" aria-labelledby="myContributionsTitle">
+        <div class="dashboard-section__header">
+          <div class="dashboard-section__title-group">
+            <h2 id="myContributionsTitle" class="dashboard-section__title">My Support Contributions</h2>
+            <span class="dashboard-section__count" id="myContributionsCount">1 Contribution</span>
+          </div>
+          <a href="offer-support.html" class="btn btn-outline-subtle" style="font-size: 0.85rem;">
+            Submit Another Offer
+          </a>
+          <p class="dashboard-section__desc">
+            Track support you have offered and the community challenges it is linked to.
+          </p>
+        </div>
+
+        <div class="proposals-list" id="partnerContributionsContainer" aria-label="Support contributions list">
+          <!-- Populated dynamically via JavaScript below -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer site-footer__clean">
+    <div class="container">
+      <div class="site-footer__top-row">
+        <div class="site-footer__brand-block">
+          <img src="assets/images/logo.png" alt="CivicConnect" class="footer-logo">
+          <p class="site-footer__tagline">From community challenges to shared solutions.</p>
+          <p class="site-footer__summary">
+            CivicConnect connects local challenges with students, universities, researchers and partners to explore practical solutions.
+          </p>
+        </div>
+        <div class="site-footer__nav-block">
+          <h3 class="site-footer__nav-heading">Links</h3>
+          <ul class="site-footer__links">
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="citizen-portal.html">Citizen Portal</a></li>
+            <li><a href="student-dashboard.html">Student Dashboard</a></li>
+            <li><a href="partner-support.html">Partner Support</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom-line">
+        <div>&copy; 2026 CivicConnect &middot; From community challenges to shared solutions.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var user = window.CIVIC_AUTH ? window.CIVIC_AUTH.requireAuth(['partner', 'admin']) : null;
+      if (!user) return;
+
+      var esc = window.CivicUtils ? window.CivicUtils.escapeHTML : function(s) { return s || ''; };
+
+      // Explore opportunities button scroll
+      var expBtn = document.getElementById('exploreOpportunitiesBtn');
+      if (expBtn) {
+        expBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          var target = document.getElementById('partnerOpportunitiesSection');
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+
+      // 1. Render Student Solution Opportunities (New Workflow Improvement)
+      var oppContainer = document.getElementById('partnerOpportunitiesContainer');
+      var oppCountEl = document.getElementById('opportunitiesCount');
+
+      var allProposals = typeof CivicStore !== 'undefined'
+        ? CivicStore.getProposals()
+        : (typeof SAMPLE_STUDENT_PROPOSALS !== 'undefined' ? SAMPLE_STUDENT_PROPOSALS : []);
+
+      var allProblems = typeof CivicStore !== 'undefined'
+        ? CivicStore.getProblems()
+        : (typeof SAMPLE_PROBLEMS !== 'undefined' ? SAMPLE_PROBLEMS : []);
+
+      if (oppCountEl) {
+        oppCountEl.textContent = allProposals.length + ' ' + (allProposals.length === 1 ? 'Opportunity' : 'Opportunities');
+      }
+
+      if (oppContainer) {
+        if (allProposals.length === 0) {
+          oppContainer.innerHTML = '<p class="dashboard-section__desc">No student proposals currently seeking partner support.</p>';
+        } else {
+          oppContainer.innerHTML = allProposals.map(function(prop) {
+            var prob = allProblems.find(function(p) { return p.id === prop.problemId; });
+            var probTitle = prob ? prob.title : (prop.problemTitle || 'Community Challenge');
+            var probLocation = prob ? prob.location : '';
+
+            var statusBadgeClass = 'tag-status--review';
+            var s = (prop.status || '').toLowerCase();
+            if (s.includes('accept') || s.includes('connected')) statusBadgeClass = 'tag-status--accepted';
+            else if (s.includes('shortlist') || s.includes('explor')) statusBadgeClass = 'tag-status--shortlisted';
+
+            var needed = prop.requestedSupport || 'Technical mentorship, Testing equipment, Field validation';
+
+            return '<article class="proposal-item">' +
+              '<div class="proposal-item__top">' +
+                '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">' +
+                  '<span class="tag-id" style="background-color:var(--color-bg-sage);color:var(--color-brand-primary);font-weight:700;">' + esc(prop.id) + '</span>' +
+                  '<span class="tag-status ' + statusBadgeClass + '">' + esc(prop.status || 'Under Review') + '</span>' +
+                '</div>' +
+                '<span style="font-size:0.82rem;font-family:var(--font-mono);color:var(--color-brand-accent);font-weight:600;">' +
+                  'Target: <a href="details.html?id=' + encodeURIComponent(prop.problemId) + '" style="color:inherit;text-decoration:underline;">' + esc(prop.problemId) + '</a>' +
+                '</span>' +
+              '</div>' +
+
+              '<h3 class="proposal-item__title">' + esc(prop.solutionTitle) + '</h3>' +
+
+              '<div class="proposal-item__meta">' +
+                '<span><strong>Related Problem:</strong> ' + esc(probTitle) + (probLocation ? ' (' + esc(probLocation) + ')' : '') + '</span>' +
+              '</div>' +
+              '<div class="proposal-item__meta" style="margin-top:6px;">' +
+                '<span><strong>Student / Team:</strong> ' + esc(prop.student) + '</span>' +
+                '<span> &bull; </span>' +
+                '<span><strong>University:</strong> ' + esc(prop.university || '') + '</span>' +
+              '</div>' +
+
+              '<div class="form-panel-tinted" style="margin:14px 0 12px;padding:12px 16px;">' +
+                '<strong style="font-size:0.85rem;color:var(--color-text-headings);">Support Needed:</strong>' +
+                '<p style="font-size:0.88rem;color:var(--color-text-muted);margin:4px 0 0;">' + esc(needed) + '</p>' +
+              '</div>' +
+
+              '<p class="proposal-item__desc">' + esc(prop.description || '') + '</p>' +
+
+              '<div class="proposal-item__actions" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">' +
+                '<a href="offer-support.html?problemId=' + encodeURIComponent(prop.problemId) + '&proposalId=' + encodeURIComponent(prop.id) + '" class="btn btn-action" style="padding:6px 16px;font-size:0.88rem;">' +
+                  'Offer Support &rarr;' +
+                '</a>' +
+                '<a href="solution-details.html?id=' + encodeURIComponent(prop.id) + '" class="btn btn-outline-subtle" style="font-size:0.85rem;">' +
+                  'View Solution Details' +
+                '</a>' +
+                '<a href="details.html?id=' + encodeURIComponent(prop.problemId) + '" class="view-details-link" style="font-size:0.88rem;margin-left:auto;">' +
+                  'View Linked Problem (' + esc(prop.problemId) + ')' +
+                '</a>' +
+              '</div>' +
+            '</article>';
+          }).join('');
+        }
+      }
+
+      // 2. Render My Support Contributions (matching Screenshot 2)
+      var contribContainer = document.getElementById('partnerContributionsContainer');
+      var contribCountEl = document.getElementById('myContributionsCount');
+
+      var allOffers = typeof CivicStore !== 'undefined'
+        ? CivicStore.getSupportOffers()
+        : (typeof SAMPLE_SUPPORT_REQUESTS !== 'undefined' ? SAMPLE_SUPPORT_REQUESTS : []);
+
+      var userOffers = allOffers.filter(function(o) { return o.submittedBy === user.uid; });
+      var offersToDisplay = (userOffers && userOffers.length > 0)
+        ? userOffers
+        : (typeof SAMPLE_SUPPORT_REQUESTS !== 'undefined' ? [SAMPLE_SUPPORT_REQUESTS[0]] : []);
+
+      if (contribCountEl) {
+        var count = offersToDisplay.length;
+        contribCountEl.textContent = count + ' ' + (count === 1 ? 'Contribution' : 'Contributions');
+      }
+
+      if (contribContainer) {
+        contribContainer.innerHTML = offersToDisplay.map(function(req) {
+          var status = req.status || 'Connected';
+          var statusClass = 'tag-status--accepted';
+          var st = status.toLowerCase();
+          if (st.includes('offer')) statusClass = 'tag-status--shortlisted';
+          else if (st.includes('review') || st.includes('info')) statusClass = 'tag-status--review';
+
+          var problemId = req.problemId || 'CC-001';
+
+          return '<article class="proposal-item">' +
+            '<div class="proposal-item__top">' +
+              '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">' +
+                '<span class="tag-id" style="background-color:var(--color-brand-primary);color:#fff;">' + esc(req.id) + '</span>' +
+                '<span class="tag-status ' + statusClass + '">' + esc(status) + '</span>' +
+              '</div>' +
+              '<span style="font-size:0.82rem;font-family:var(--font-mono);color:var(--color-brand-accent);font-weight:600;">' +
+                'Linked: ' + esc(problemId) +
+              '</span>' +
+            '</div>' +
+
+            '<h3 class="proposal-item__title">' + esc(req.problemTitle || 'Technical Support & Turbidity Testing Calibration') + '</h3>' +
+
+            '<div class="proposal-item__meta">' +
+              '<span><strong>Partner:</strong> ' + esc(req.organization || user.organization || user.name) + '</span>' +
+              '<span> &bull; </span>' +
+              '<span><strong>Type:</strong> ' + esc(req.supportType || 'Technical Guidance & Testing Meters') + '</span>' +
+            '</div>' +
+
+            '<p class="proposal-item__desc">' +
+              esc(req.description || 'Providing water quality turbidity testing meters and technical guidance on safe chlorination dosing for the student team\'s borewell filtration pilot in Kolhapur.') +
+            '</p>' +
+
+            '<div class="proposal-item__actions" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">' +
+              '<a href="support-details.html?id=' + encodeURIComponent(req.id) + '" class="btn btn-sm btn-action" style="padding:6px 14px;font-size:0.86rem;min-height:unset;min-width:unset;">' +
+                'View Contribution Details &rarr;' +
+              '</a>' +
+              '<a href="details.html?id=' + encodeURIComponent(problemId) + '" class="view-details-link" style="font-size:0.88rem;margin-left:auto;">' +
+                'View Linked Problem (' + esc(problemId) + ')' +
+              '</a>' +
+            '</div>' +
+          '</article>';
+        }).join('');
+      }
+    });
+  </script>
+</body>
+</html>
